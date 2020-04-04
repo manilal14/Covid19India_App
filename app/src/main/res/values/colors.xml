@@ -7,8 +7,9 @@
     <color name="extream_light_blue">#ccddff</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="green">#00b300</color>
+    <color name="green">#F20DDD41</color>
     <color name="red">#e63900</color>
     <color name="white_85">#d9d9d9</color>
     <color name="white_95">#f2f2f2</color>
+    <color name="dark_blue">#0754EE</color>
 </resources>

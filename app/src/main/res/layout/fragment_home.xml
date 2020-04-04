@@ -16,23 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lockdown"
-                    android:padding="24dp"
-                    android:background="@color/extream_light_blue"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:textColor="@color/blue"/>
+                <include layout="@layout/banner"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,7 +45,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="INDIA COVID-19\nTRACKER"
-                                android:fontFamily="@font/montserrat_bold"
+                                android:fontFamily="@font/archia_bold_webfont"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"/>
 
@@ -67,7 +56,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="10sp"
                                 android:layout_marginTop="2dp"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                         </LinearLayout>
 
@@ -79,8 +68,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:lineSpacingMultiplier="1.3"
-                            android:fontFamily="@font/gotham_medium_regular"
+                            android:fontFamily="@font/archia_semibold_webfont"
                             android:textSize="10sp"
                             android:paddingRight="4dp"
                             android:textStyle="bold|italic"
@@ -107,7 +95,7 @@
                                 android:layout_gravity="center"
                                 android:textSize="12sp"
                                 android:textColor="@color/red"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/d_conf"
@@ -119,7 +107,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="12sp"
                                 android:textColor="@color/red"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/total_conf"
@@ -131,7 +119,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="20sp"
                                 android:textColor="@color/red"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
 
 
@@ -151,7 +139,7 @@
                                 android:layout_gravity="center"
                                 android:textSize="12sp"
                                 android:textColor="@color/blue"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/d_active"
@@ -163,7 +151,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="12sp"
                                 android:textColor="@color/blue"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/total_active"
@@ -175,7 +163,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="20sp"
                                 android:textColor="@color/blue"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
 
 
@@ -195,7 +183,7 @@
                                 android:layout_gravity="center"
                                 android:textSize="12sp"
                                 android:textColor="@color/green"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/d_recovered"
@@ -207,7 +195,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="12sp"
                                 android:textColor="@color/green"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/total_recovered"
@@ -219,7 +207,7 @@
                                 android:textAllCaps="true"
                                 android:textSize="20sp"
                                 android:textColor="@color/green"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
 
 
@@ -238,7 +226,7 @@
                                 android:textAllCaps="true"
                                 android:layout_gravity="center"
                                 android:textSize="12sp"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/d_death"
@@ -249,7 +237,7 @@
                                 android:layout_gravity="center"
                                 android:textAllCaps="true"
                                 android:textSize="12sp"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                             <TextView
                                 android:id="@+id/total_death"
@@ -260,7 +248,7 @@
                                 android:layout_gravity="center"
                                 android:textAllCaps="true"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/montserrat_semi_bold" />
+                                android:fontFamily="@font/archia_semibold_webfont" />
 
                         </LinearLayout>
 
@@ -276,7 +264,7 @@
                         android:textAllCaps="true"
                         android:textSize="10sp"
                         android:layout_marginTop="20dp"
-                        android:fontFamily="@font/montserrat_semi_bold" />
+                        android:fontFamily="@font/archia_semibold_webfont" />
 
                     <LinearLayout
                         android:layout_marginTop="8dp"
@@ -298,7 +286,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/montserrat_bold" />
+                            android:fontFamily="@font/archia_bold_webfont" />
 
                         <TextView
                             android:layout_marginLeft="2dp"
@@ -314,7 +302,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:textColor="@color/red"
-                            android:fontFamily="@font/montserrat_bold" />
+                            android:fontFamily="@font/archia_bold_webfont" />
 
                         <TextView
                             android:layout_marginLeft="2dp"
@@ -330,7 +318,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:textColor="@color/blue"
-                            android:fontFamily="@font/montserrat_bold" />
+                            android:fontFamily="@font/archia_bold_webfont" />
 
 
                         <TextView
@@ -347,7 +335,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:textColor="@color/green"
-                            android:fontFamily="@font/montserrat_bold" />
+                            android:fontFamily="@font/archia_bold_webfont" />
 
 
                         <TextView
@@ -364,7 +352,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:textColor="@color/red"
-                            android:fontFamily="@font/montserrat_bold" />
+                            android:fontFamily="@font/archia_bold_webfont" />
 
 
                     </LinearLayout>
@@ -374,6 +362,21 @@
                         android:id="@+id/recycler_view_states"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:id="@+id/states_affected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  States/ut Affected"
+                        android:textAllCaps="true"
+                        android:textSize="10sp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/archia_semibold_webfont"
+                        android:layout_gravity="right"/>
+
+                    <include layout="@layout/bottom_layout"/>
+
                 </LinearLayout>
 
             </LinearLayout>

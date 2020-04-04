@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.mani.covid_19.ApiInterface;
+import com.mani.covid_19.CommonFuntions;
 import com.mani.covid_19.R;
 import com.mani.covid_19.RetrofitClientInstance;
 
@@ -56,7 +57,12 @@ public class HomeFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(() -> {
             fetchStateWiseList();
         });
+
+        CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
+
     }
+
+
 
     private void fetchStateWiseList() {
 
@@ -114,6 +120,9 @@ public class HomeFragment extends Fragment {
                     }
 
                     startAdapter();
+                    ((TextView)mRootView.findViewById(R.id.states_affected)).setText(mStateList.size()+" states/uts affected");
+
+
 
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:text="Maharatra"
             android:textAllCaps="true"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:singleLine="true"
             android:background="@drawable/rounded_corner"
             android:paddingLeft="8dp"
@@ -26,8 +26,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/gotham_book_regular" />
+            android:fontFamily="@font/archia_bold_webfont" />
 
         <LinearLayout
             android:id="@+id/ll_confirm"
@@ -49,7 +48,7 @@
                 android:text=""
                 android:textColor="@color/red"
                 android:textSize="10sp"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/archia_medium_webfont"
                 android:textStyle="bold"/>
 
             <TextView
@@ -63,7 +62,7 @@
                 android:textAllCaps="true"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat_medium"/>
+                android:fontFamily="@font/archia_medium_webfont"/>
 
 
         </LinearLayout>
@@ -86,7 +85,7 @@
             android:paddingTop="6dp"
             android:textStyle="bold"
             android:paddingBottom="6dp"
-            android:fontFamily="@font/montserrat_medium" />
+            android:fontFamily="@font/archia_medium_webfont" />
 
 
         <TextView
@@ -105,7 +104,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium" />
+            android:fontFamily="@font/archia_medium_webfont" />
 
 
         <TextView
@@ -124,7 +123,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium" />
+            android:fontFamily="@font/archia_medium_webfont" />
 
 
     </LinearLayout>
