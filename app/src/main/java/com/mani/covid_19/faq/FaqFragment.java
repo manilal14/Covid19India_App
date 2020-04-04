@@ -1,6 +1,7 @@
-package com.mani.covid_19.ui.faq;
+package com.mani.covid_19.faq;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class FaqFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
+        Log.e(TAG,"FaqFragment");
         mRootView = inflater.inflate(R.layout.fragment_helpful_links, container, false);
         clickListeners();
         setFaq();

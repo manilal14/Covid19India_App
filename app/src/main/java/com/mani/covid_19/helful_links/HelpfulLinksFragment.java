@@ -1,6 +1,7 @@
-package com.mani.covid_19.ui.helful_links;
+package com.mani.covid_19.helful_links;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class HelpfulLinksFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_helpful_links, container, false);
+        Log.e(TAG, "HelpfulLinksFragment");
         clickListeners();
         setLinks();
 

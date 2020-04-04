@@ -1,4 +1,4 @@
-package com.mani.covid_19.ui.home;
+package com.mani.covid_19.home;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -42,7 +41,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        
+        Log.e(TAG, "HomeFragment");
         mRootView = inflater.inflate(R.layout.fragment_home, container, false);
         mSwipeRefreshLayout = mRootView.findViewById(R.id.swipe_to_refresh);
         mStateList = new ArrayList<>();
@@ -67,8 +66,6 @@ public class HomeFragment extends Fragment {
     private void fetchStateWiseList() {
 
         Log.e(TAG,"called : fetchStateWiseList");
-        //mProgressBar.setVisibility(View.VISIBLE);
-
         mSwipeRefreshLayout.setRefreshing(true);
 
         Call<String> call = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class).getStateWiseList();
@@ -133,10 +130,8 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                //mProgressBar.setVisibility(View.GONE);
                 mSwipeRefreshLayout.setRefreshing(false);
                 Log.e(TAG,t.getMessage());
-                Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });

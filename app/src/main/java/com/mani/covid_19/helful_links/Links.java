@@ -1,4 +1,4 @@
-package com.mani.covid_19.ui.helful_links;
+package com.mani.covid_19.helful_links;
 
 public class Links {
     private String title;

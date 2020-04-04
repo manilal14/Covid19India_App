@@ -1,4 +1,4 @@
-package com.mani.covid_19.ui.home;
+package com.mani.covid_19.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;

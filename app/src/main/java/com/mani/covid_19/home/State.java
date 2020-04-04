@@ -1,4 +1,4 @@
-package com.mani.covid_19.ui.home;
+package com.mani.covid_19.home;
 
 public class State {
 
