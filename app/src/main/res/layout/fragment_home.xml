@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_to_refresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lockdown"
+                    android:padding="24dp"
+                    android:background="@color/extream_light_blue"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:textColor="@color/blue"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="INDIA COVID-19\nTRACKER"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="A crowdsourced initiative"
+                                android:textAllCaps="true"
+                                android:textSize="10sp"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/last_updated_at"
+                            android:layout_gravity="right"
+                            android:gravity="right"
+                            android:textAllCaps="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:lineSpacingMultiplier="1.3"
+                            android:fontFamily="@font/gotham_medium_regular"
+                            android:textSize="10sp"
+                            android:paddingRight="4dp"
+                            android:textStyle="bold|italic"
+                            android:textColor="@color/green"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirmed"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/d_conf"
+                                android:layout_marginTop="12dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="[]"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="12sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/total_conf"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="20sp"
+                                android:textColor="@color/red"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Active"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/blue"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/d_active"
+                                android:layout_marginTop="12dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="[]"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="12sp"
+                                android:textColor="@color/blue"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/total_active"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="20sp"
+                                android:textColor="@color/blue"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Recovered"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/green"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/d_recovered"
+                                android:layout_marginTop="12dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="[]"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="12sp"
+                                android:textColor="@color/green"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/total_recovered"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="20sp"
+                                android:textColor="@color/green"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Deceased"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/d_death"
+                                android:layout_marginTop="12dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="[]"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                            <TextView
+                                android:id="@+id/total_death"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textSize="20sp"
+                                android:fontFamily="@font/montserrat_semi_bold" />
+
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/compiled"
+                        android:textAllCaps="true"
+                        android:textSize="10sp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_semi_bold" />
+
+                    <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:text="State/ut"
+                            android:textAllCaps="true"
+                            android:textSize="10sp"
+                            android:background="@drawable/rounded_corner"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/montserrat_bold" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1.6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="C"
+                            android:textAllCaps="true"
+                            android:textSize="10sp"
+                            android:background="@drawable/rounded_corner"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:textColor="@color/red"
+                            android:fontFamily="@font/montserrat_bold" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1.2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="A"
+                            android:textAllCaps="true"
+                            android:textSize="10sp"
+                            android:background="@drawable/rounded_corner"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:textColor="@color/blue"
+                            android:fontFamily="@font/montserrat_bold" />
+
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="R"
+                            android:textAllCaps="true"
+                            android:textSize="10sp"
+                            android:background="@drawable/rounded_corner"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/montserrat_bold" />
+
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="D"
+                            android:textAllCaps="true"
+                            android:textSize="10sp"
+                            android:background="@drawable/rounded_corner"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:textColor="@color/red"
+                            android:fontFamily="@font/montserrat_bold" />
+
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/recycler_view_states"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

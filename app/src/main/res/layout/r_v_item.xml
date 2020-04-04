@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:text="Maharatra"
+            android:textAllCaps="true"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/gotham_book_regular" />
+
+        <LinearLayout
+            android:id="@+id/ll_confirm"
+            android:layout_width="0dp"
+            android:layout_weight="1.6"
+            android:background="@drawable/rounded_corner"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="2dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:id="@+id/d_confirmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:fontFamily="@font/montserrat_medium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_confirmed"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="4512"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_medium"/>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_active"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="7458"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="8dp"
+            android:paddingRight="4dp"
+            android:paddingTop="6dp"
+            android:textStyle="bold"
+            android:paddingBottom="6dp"
+            android:fontFamily="@font/montserrat_medium" />
+
+
+        <TextView
+            android:id="@+id/tv_recovered"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="423"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="8dp"
+            android:paddingRight="4dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_medium" />
+
+
+        <TextView
+            android:id="@+id/tv_death"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="1478"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="8dp"
+            android:paddingRight="4dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_medium" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
