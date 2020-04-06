@@ -2,10 +2,12 @@ package com.mani.covid_19.home;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,7 @@ import com.mani.covid_19.R;
 import com.mani.covid_19.RetrofitClientInstance;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
@@ -47,26 +50,90 @@ public class HomeFragment extends Fragment {
         mStateList = new ArrayList<>();
 
         clickListeners();
-        fetchStateWiseList();
 
+        fetchDistrictWiseList();
         return mRootView;
     }
 
     private void clickListeners() {
         mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            fetchStateWiseList();
+            //fetchStateWiseList();
+            fetchDistrictWiseList();
         });
 
         CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
 
     }
 
+    /*
+    * fetch district list for states
+    * make pair with corresponding state i.e state name is first and second is list of their district
+    * now fetch state detail
+    * search for district list from pair according to first i.e state name and add second i.e district list to state
+    * make state list which will contain district list in corresponding states
+    */
+
+    private void fetchDistrictWiseList(){
+
+        Log.e(TAG,"called : fetchDistrictWiseList");
+        mSwipeRefreshLayout.setRefreshing(true);
 
 
-    private void fetchStateWiseList() {
+        Call<String> call = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class).getDistrictWiseList();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+
+                List< Pair<String, List<District>>> stateDistrictPairList = new ArrayList<>();
+
+                try {
+                    JSONArray array = new JSONArray(response.body());
+
+                    for(int i=0;i<array.length();i++){
+
+                        JSONObject obj = array.getJSONObject(i);
+                        String state = obj.getString("state");
+                        JSONArray districtData = obj.getJSONArray("districtData");
+
+                        List<District> districtList = new ArrayList<>();
+                        for(int j=0;j<districtData.length();j++){
+
+                            JSONObject disObj = districtData.getJSONObject(j);
+
+                            String disName = disObj.getString("district");
+                            String  conf   = disObj.getString("confirmed");
+                            String d_conf  = disObj.getJSONObject("delta").getString("confirmed");
+
+                            districtList.add(new District(disName, conf, d_conf));
+
+
+                        }
+
+
+                        stateDistrictPairList.add(new Pair(state,districtList));
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e(TAG,e.toString());
+                }
+
+                fetchStateWiseList(stateDistrictPairList);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                mSwipeRefreshLayout.setRefreshing(false);
+                Log.e(TAG,t.toString());
+            }
+        });
+    }
+
+    private void fetchStateWiseList(List<Pair<String, List<District>>> stateDistrictList) {
 
         Log.e(TAG,"called : fetchStateWiseList");
-        mSwipeRefreshLayout.setRefreshing(true);
+        //mSwipeRefreshLayout.setRefreshing(true);
 
         Call<String> call = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class).getStateWiseList();
 
@@ -97,7 +164,8 @@ public class HomeFragment extends Fragment {
 
                         String updateAt  = object.getString("lastupdatedtime");     // 03/04/2020 19:32:24
 
-                        String d_act       = object.getJSONObject("delta").getString("active");
+                       // String d_act       = object.getJSONObject("delta").getString("active");
+                        String d_act = "";
                         String d_conf      = object.getString("deltaconfirmed");
                         String d_deaths    = object.getString("deltadeaths");
                         String d_recov     = object.getString("deltarecovered");
@@ -107,7 +175,15 @@ public class HomeFragment extends Fragment {
                             continue;
 
                         if(i!=0){
-                            mStateList.add(new State(name, active,conf,deaths,recov,updateAt, d_act, d_conf,d_deaths,d_recov));
+                            List<District> districtList = new ArrayList<>();
+                            for(int j=0;j<stateDistrictList.size();j++){
+                                if(stateDistrictList.get(j).first.equals(name)){
+                                    districtList = stateDistrictList.get(j).second;
+                                    break;
+                                }
+                            }
+
+                            mStateList.add(new State(name, active,conf,deaths,recov,updateAt, d_act, d_conf,d_deaths,d_recov,districtList));
                         }
                         else{
                             // i=0, refers to total number of cases
@@ -124,6 +200,7 @@ public class HomeFragment extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.e(TAG, e.toString());
+                    Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -132,6 +209,7 @@ public class HomeFragment extends Fragment {
             public void onFailure(Call<String> call, Throwable t) {
                 mSwipeRefreshLayout.setRefreshing(false);
                 Log.e(TAG,t.getMessage());
+                Toast.makeText(getActivity(),t.toString(),Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -145,7 +223,7 @@ public class HomeFragment extends Fragment {
         ((TextView)mRootView.findViewById(R.id.total_death)).setText(deaths);
 
         ((TextView)mRootView.findViewById(R.id.d_conf)).setText("[+"+d_conf+"]");
-        ((TextView)mRootView.findViewById(R.id.d_active)).setText("[+"+d_act+"]");
+        ((TextView)mRootView.findViewById(R.id.d_active)).setText("");
         ((TextView)mRootView.findViewById(R.id.d_recovered)).setText("[+"+d_recov+"]");
         ((TextView)mRootView.findViewById(R.id.d_death)).setText("[+"+d_deaths+"]");
 

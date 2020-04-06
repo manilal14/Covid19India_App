@@ -1,5 +1,7 @@
 package com.mani.covid_19.home;
 
+import java.util.List;
+
 public class State {
 
     private String name;
@@ -13,10 +15,14 @@ public class State {
     private String d_act;
     private String d_conf;
     private String d_deaths;
-    private String d_covered;
+    private String d_recovered;
 
-    public State(String name, String active, String confired, String deaths, String recovered, String lastUpdateAt,
-                 String d_act, String d_conf, String d_deaths, String d_covered) {
+    private List<District> districtList;
+
+
+    public State(String name, String active, String confired,
+                 String deaths, String recovered, String lastUpdateAt, String d_act, String d_conf, String d_deaths,
+                 String d_covered, List<District> districtList) {
         this.name = name;
         this.active = active;
         this.confired = confired;
@@ -26,7 +32,8 @@ public class State {
         this.d_act = d_act;
         this.d_conf = d_conf;
         this.d_deaths = d_deaths;
-        this.d_covered = d_covered;
+        this.d_recovered = d_covered;
+        this.districtList = districtList;
     }
 
     public String getName() {
@@ -65,7 +72,11 @@ public class State {
         return d_deaths;
     }
 
-    public String getD_covered() {
-        return d_covered;
+    public String getD_recovered() {
+        return d_recovered;
+    }
+
+    public List<District> getDistrictList() {
+        return districtList;
     }
 }

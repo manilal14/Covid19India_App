@@ -26,14 +26,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_marginTop="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -79,6 +79,8 @@
                         android:layout_marginTop="24dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -260,6 +262,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:text="@string/compiled"
                         android:textAllCaps="true"
                         android:textSize="10sp"
@@ -270,6 +274,8 @@
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="horizontal">
 
 
@@ -306,7 +312,7 @@
 
                         <TextView
                             android:layout_marginLeft="2dp"
-                            android:layout_weight="1.2"
+                            android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="A"
@@ -323,7 +329,7 @@
 
                         <TextView
                             android:layout_marginLeft="2dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="R"
@@ -340,7 +346,7 @@
 
                         <TextView
                             android:layout_marginLeft="2dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="D"
@@ -351,7 +357,6 @@
                             android:paddingRight="8dp"
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
-                            android:textColor="@color/red"
                             android:fontFamily="@font/archia_bold_webfont" />
 
 
@@ -368,6 +373,8 @@
                         android:id="@+id/states_affected"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:text="  States/ut Affected"
                         android:textAllCaps="true"
                         android:textSize="10sp"

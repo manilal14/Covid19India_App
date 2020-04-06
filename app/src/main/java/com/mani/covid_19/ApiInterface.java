@@ -7,4 +7,8 @@ public interface ApiInterface {
 
     @GET("/data.json")
     Call<String> getStateWiseList();
+
+
+    @GET("/v2/state_district_wise.json")
+    Call<String> getDistrictWiseList();
 }

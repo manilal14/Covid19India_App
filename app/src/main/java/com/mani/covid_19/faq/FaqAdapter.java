@@ -26,7 +26,7 @@ public class FaqAdapter extends RecyclerView.Adapter<FaqAdapter.LinksViewHolder>
     @NonNull
     @Override
     public LinksViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LinksViewHolder(LayoutInflater.from(mCtx).inflate(R.layout.links_item,parent,false));
+        return new LinksViewHolder(LayoutInflater.from(mCtx).inflate(R.layout.single_links_item,parent,false));
     }
 
     @Override
