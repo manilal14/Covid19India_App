@@ -1,8 +1,9 @@
 package com.mani.covid_19.home;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class State {
+public class State implements Serializable {
 
     private String name;
     private String active;

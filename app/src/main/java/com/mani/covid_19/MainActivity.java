@@ -1,6 +1,7 @@
 package com.mani.covid_19;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.widget.TextView;
 
@@ -12,6 +13,10 @@ import androidx.fragment.app.FragmentTransaction;
 import com.mani.covid_19.faq.FaqFragment;
 import com.mani.covid_19.helful_links.HelpfulLinksFragment;
 import com.mani.covid_19.home.HomeFragment;
+import com.mani.covid_19.home.State;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,8 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment) {
 
+        if(fragment instanceof HomeFragment){
+            Log.e("check", "sending bundle");
+            //sending bundle received from Splash screen to Homefragment
+
+            List<State> stateList = (List<State>) getIntent().getSerializableExtra(AppConstants.STATE_LIST);
+            State state = (State) getIntent().getSerializableExtra(AppConstants.WHOLE_INDIA);
+
+            Bundle b = new Bundle();
+            b.putSerializable(AppConstants.STATE_LIST, (Serializable) stateList);
+            b.putSerializable(AppConstants.WHOLE_INDIA,state);
+            fragment.setArguments(b);
+
+        }
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment, fragment,fragment.getClass().getSimpleName());
+
         fragmentTransaction.commit();
 
     }

@@ -1,6 +1,8 @@
 package com.mani.covid_19.home;
 
-public class District {
+import java.io.Serializable;
+
+public class District implements Serializable {
 
     private String name;
     private String conf;

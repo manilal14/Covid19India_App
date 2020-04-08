@@ -1,183 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="40dp"
-    android:paddingBottom="16dp"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="We stand with everyone fighting on the frontlines"
-        android:textAllCaps="true"
-        android:textSize="10sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/archia_semibold_webfont"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Covid19India"
-        android:textAllCaps="true"
-        android:textSize="16sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="12dp"
-        android:textColor="@color/blue"
-        android:fontFamily="@font/archia_bold_webfont"/>
+    android:paddingTop="24dp"
+    android:paddingBottom="16dp">
 
     <LinearLayout
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
+        android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/archia_semibold_webfont"
+            android:text="@string/mekvah_text"
+            android:textAllCaps="true"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/archia_semibold_webfont"
+                android:text="To Avail, Download the "
+                android:textAllCaps="true"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/archia_semibold_webfont"
+                android:text="Mekvahan "
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/archia_semibold_webfont"
+                android:text="App now."
+                android:textAllCaps="true"
+                android:textSize="10sp" />
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/archia_bold_webfont"
+        android:text="Covid19India"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/ll_github"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
             android:background="@drawable/black_rounded_corner"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:src="@drawable/github"/>
+                android:src="@drawable/github" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/archia_semibold_webfont"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
                 android:text="Open Sourced on\ngithub"
                 android:textAllCaps="true"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_marginLeft="16dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/archia_semibold_webfont"
                 android:textColor="@color/white"
-                android:layout_gravity="center"/>
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_db"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/light_green_rounded_corner"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:src="@drawable/db"/>
+                android:src="@drawable/db" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CroudSourced \nPatient Database"
-                android:textAllCaps="true"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:lineSpacingMultiplier="1.2"
+                android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
                 android:fontFamily="@font/archia_semibold_webfont"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
+                android:text="CroudSourced \nPatient Database"
+                android:textAllCaps="true"
                 android:textColor="@color/green"
-                android:layout_gravity="center"/>
-
-
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_twitter"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/light_blue_rounded_corner"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:src="@drawable/twitter"/>
+                android:src="@drawable/twitter" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View updates on\nPatient Twitter"
-                android:textAllCaps="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/archia_semibold_webfont"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.2"
-                android:textSize="12sp"
-                android:layout_marginLeft="16dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/archia_semibold_webfont"
+                android:text="View updates on\nPatient Twitter"
+                android:textAllCaps="true"
                 android:textColor="@color/blue"
-                android:layout_gravity="center"/>
-
-
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_telegram"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/rounded_corner"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat"/>
+                android:src="@drawable/chat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Join Telegram to\nCollabrate"
-                android:textAllCaps="true"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:lineSpacingMultiplier="1.2"
+                android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
                 android:fontFamily="@font/archia_semibold_webfont"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Join Telegram to\nCollabrate"
+                android:textAllCaps="true"
                 android:textColor="#057BD8"
-                android:layout_gravity="center"/>
-
-
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
 
-
-
     </LinearLayout>
-
 
 
 </LinearLayout>

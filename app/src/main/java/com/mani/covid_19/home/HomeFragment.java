@@ -1,5 +1,6 @@
 package com.mani.covid_19.home;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -38,8 +39,6 @@ public class HomeFragment extends Fragment {
     
     private final String TAG = this.getClass().getSimpleName();
     private View mRootView;
-
-    private List<State> mStateList;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,21 +46,53 @@ public class HomeFragment extends Fragment {
         Log.e(TAG, "HomeFragment");
         mRootView = inflater.inflate(R.layout.fragment_home, container, false);
         mSwipeRefreshLayout = mRootView.findViewById(R.id.swipe_to_refresh);
-        mStateList = new ArrayList<>();
 
         clickListeners();
 
-        fetchDistrictWiseList();
+        Bundle bundle = getArguments();
+
+        if(bundle==null) {
+            Log.e(TAG, "bundle is null");
+            fetchDistrictWiseList();
+        }
+        else {
+            List<State> stateList = (List<State>) getArguments().getSerializable("stateList");
+            State wholeIndia = (State) getArguments().getSerializable("wholeIndia");
+            setTotalCasesAndStartAdapter(stateList, wholeIndia);
+        }
+
         return mRootView;
     }
 
     private void clickListeners() {
-        mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            //fetchStateWiseList();
-            fetchDistrictWiseList();
-        });
-
+        setBanner();
+        mSwipeRefreshLayout.setOnRefreshListener(() -> fetchDistrictWiseList());
         CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
+
+    }
+
+    private void setBanner() {
+
+        List<String> bannerElement = new ArrayList<>();
+        bannerElement.add("Wash your hands with soap and water");
+        bannerElement.add("Your essential needs will be taken care by the government in an timely manner. Please do not hoard.");
+        bannerElement.add("Be considerate");
+        bannerElement.add("Help out the elderly by bringing them their groceries and other essentials.");
+        bannerElement.add("Don't hoard groceries and essentials. Please ensure that people who are in need don't face a shortage because of you!");
+        bannerElement.add("Call up your loved ones during the lockdown");
+        bannerElement.add("Help out your employees and domestic workers by not cutting their salaries. Show the true Indian spirit!");
+        bannerElement.add("Get in touch with your local NGO's and district administration to volunteer for this cause.");
+        bannerElement.add("Stands against FAKE and illegit WhatsApp forwards! Do NOT forword a message untill you verify the content it contains.");
+        bannerElement.add("Our brothers from North-East are just as Indian as you! Help everyone during this crisis.");
+        bannerElement.add("The virus does not discriminate. Why do you? DO NOT DISCRIMINATE. We are all INDIANS.");
+        bannerElement.add("There is no evidence that hot weather will stop the virus! You can! Stay home, stay safe.");
+        bannerElement.add("Help the medical medical fraternity by staying at home!");
+        bannerElement.add("Plan ahead! Take a minute and check how much supplies you have at home. Planning lets you buys exactly what you need.");
+        bannerElement.add("If you have any mediacal queries, reach out to your state helpline, district administration or trusted doctors!.");
+        bannerElement.add("This will pass too. Enjoy your time at home and spend quality time with your family! Things will be normal soon.");
+        bannerElement.add("If you hava any symtoms and suspect you have coronavirus - reaach ot to your doctors or call state helplines.");
+        bannerElement.add("Panic Mode : OFF, ESSENTIALS are ON!");
+
 
     }
 
@@ -116,6 +147,7 @@ public class HomeFragment extends Fragment {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
                     Log.e(TAG,e.toString());
                 }
 
@@ -125,6 +157,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 mSwipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(getActivity(),t.toString(),Toast.LENGTH_SHORT).show();
                 Log.e(TAG,t.toString());
             }
         });
@@ -134,6 +167,9 @@ public class HomeFragment extends Fragment {
 
         Log.e(TAG,"called : fetchStateWiseList");
         //mSwipeRefreshLayout.setRefreshing(true);
+
+        List<State> mStateList = new ArrayList<>();
+        final State[] wholeIndia = new State[1];
 
         Call<String> call = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class).getStateWiseList();
 
@@ -182,18 +218,14 @@ public class HomeFragment extends Fragment {
                                     break;
                                 }
                             }
-
                             mStateList.add(new State(name, active,conf,deaths,recov,updateAt, d_act, d_conf,d_deaths,d_recov,districtList));
                         }
                         else{
-                            // i=0, refers to total number of cases
-                            setTotalCases(conf,active,recov,deaths,d_conf,d_act,d_recov,d_deaths);
-                            setLastUpdatedTextView(updateAt);
+                            wholeIndia[0] = new State(name, active,conf,deaths,recov,updateAt, d_act, d_conf,d_deaths,d_recov,null);
                         }
                     }
 
-                    startAdapter();
-                    ((TextView)mRootView.findViewById(R.id.states_affected)).setText(mStateList.size()+" states/uts affected");
+                    setTotalCasesAndStartAdapter(mStateList,wholeIndia[0]);
 
 
 
@@ -215,24 +247,17 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void setTotalCases(String conf, String active, String recov, String deaths, String d_conf, String d_act, String d_recov, String d_deaths) {
 
-        ((TextView)mRootView.findViewById(R.id.total_conf)).setText(conf);
-        ((TextView)mRootView.findViewById(R.id.total_active)).setText(active);
-        ((TextView)mRootView.findViewById(R.id.total_recovered)).setText(recov);
-        ((TextView)mRootView.findViewById(R.id.total_death)).setText(deaths);
-
-        ((TextView)mRootView.findViewById(R.id.d_conf)).setText("[+"+d_conf+"]");
-        ((TextView)mRootView.findViewById(R.id.d_active)).setText("");
-        ((TextView)mRootView.findViewById(R.id.d_recovered)).setText("[+"+d_recov+"]");
-        ((TextView)mRootView.findViewById(R.id.d_death)).setText("[+"+d_deaths+"]");
-
-    }
-
-    private void setLastUpdatedTextView(String updateAt) throws ParseException {
+    private void setLastUpdatedTextView(String updateAt) {
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = format.parse(updateAt);
+        Date date = null;
+        try {
+            date = format.parse(updateAt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e(TAG,e.toString());
+        }
 
         Log.e(TAG, date.toString());
 
@@ -260,14 +285,53 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void startAdapter() {
+    private void setTotalCasesAndStartAdapter(List<State> stateList, State wholeIndia) {
+
+        setTotalCases(wholeIndia);
 
         Log.e(TAG,"called : startAdapter");
 
         RecyclerView recyclerView = mRootView.findViewById(R.id.recycler_view_states);
-        StateAdapter adapter = new StateAdapter(getActivity(),mStateList);
+        StateAdapter adapter = new StateAdapter(getActivity(),stateList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
+        ((TextView)mRootView.findViewById(R.id.states_affected)).setText(stateList.size()+" states/uts affected");
+
+    }
+
+
+
+    private void setTotalCases(State wholeIndia) {
+
+        TextView t_conf        = mRootView.findViewById(R.id.total_conf);
+        TextView t_active      = mRootView.findViewById(R.id.total_active);
+        TextView t_recovered  = mRootView.findViewById(R.id.total_recovered);
+        TextView t_death      = mRootView.findViewById(R.id.total_death);
+
+        //startCountAnimation(wholeIndia.getConfired(),t_conf);
+        //startCountAnimation(wholeIndia.getActive(),t_active);
+        startCountAnimation(wholeIndia.getRecovered(),t_recovered);
+        //startCountAnimation(wholeIndia.getD_deaths(),t_death);
+
+        t_conf.setText(wholeIndia.getConfired());
+        t_active.setText(wholeIndia.getActive());
+        //t_recovered.setText(wholeIndia.getRecovered());
+        t_death.setText(wholeIndia.getDeaths());
+
+        ((TextView)mRootView.findViewById(R.id.d_conf)).setText("[+"+wholeIndia.getD_conf()+"]");
+        ((TextView)mRootView.findViewById(R.id.d_active)).setText("");
+        ((TextView)mRootView.findViewById(R.id.d_recovered)).setText("[+"+wholeIndia.getD_recovered()+"]");
+        ((TextView)mRootView.findViewById(R.id.d_death)).setText("[+"+wholeIndia.getD_deaths()+"]");
+
+        setLastUpdatedTextView(wholeIndia.getLastUpdateAt());
+    }
+
+    private void startCountAnimation(String num, TextView view) {
+        ValueAnimator animator = ValueAnimator.ofInt(0, Integer.parseInt(num));
+        animator.setDuration(2000);
+        animator.addUpdateListener(animation ->
+                view.setText(animation.getAnimatedValue().toString()));
+        animator.start();
     }
 }
