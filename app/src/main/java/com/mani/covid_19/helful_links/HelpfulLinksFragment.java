@@ -34,6 +34,7 @@ public class HelpfulLinksFragment extends Fragment {
     }
 
     private void clickListeners() {
+        CommonFuntions.setBanner(mRootView);
         CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
 
     }

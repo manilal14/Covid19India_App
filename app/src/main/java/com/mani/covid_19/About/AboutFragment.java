@@ -1,23 +1,25 @@
-package com.mani.covid_19.faq;
+package com.mani.covid_19.About;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mani.covid_19.BuildConfig;
 import com.mani.covid_19.CommonFuntions;
 import com.mani.covid_19.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FaqFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
     private final String TAG = this.getClass().getSimpleName();
     private View mRootView;
@@ -25,7 +27,7 @@ public class FaqFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Log.e(TAG,"FaqFragment");
+        Log.e(TAG,"AboutFragment");
         mRootView = inflater.inflate(R.layout.fragment_helpful_links, container, false);
         clickListeners();
         setFaq();
@@ -33,11 +35,19 @@ public class FaqFragment extends Fragment {
     }
 
     private void clickListeners() {
+        CommonFuntions.setBanner(mRootView);
         CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
+        ((TextView)mRootView.findViewById(R.id.app_version)).setText("App Version : "+ BuildConfig.VERSION_NAME);
     }
+
+
     private void setFaq() {
 
         List<Faq> linksList = new ArrayList<>();
+
+        linksList.add(new Faq("[07-Apr] Confusion regarding WB patient numbers",
+                "As WB state bulletin only reports the number of active cases, the numbers for WB are currently updated" +
+                        " according to https://www.mohfw.gov.in/"));
 
         linksList.add(new Faq("Are you official?","No"));
         linksList.add(new Faq("What are your sources? How is the data gathered for this project?",

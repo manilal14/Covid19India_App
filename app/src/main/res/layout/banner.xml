@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_banner"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="80dp"
+    android:gravity="center"
+    android:background="@color/extream_light_blue">
 
     <TextView
+        android:id="@+id/banner_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/lockdown"
-        android:padding="24dp"
-        android:background="@color/extream_light_blue"
-        android:layout_gravity="center"
         android:gravity="center"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
         android:textSize="12sp"
         android:fontFamily="@font/archia_semibold_webfont"
         android:textColor="@color/blue"/>

@@ -45,7 +45,7 @@ public class SplashScreen extends AppCompatActivity {
     private void fetchDistrictWiseList(){
 
         Log.e(TAG,"called : fetchDistrictWiseList");
-
+        mProgressBar.setVisibility(View.VISIBLE);
 
         Call<String> call = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class).getDistrictWiseList();
         call.enqueue(new Callback<String>() {

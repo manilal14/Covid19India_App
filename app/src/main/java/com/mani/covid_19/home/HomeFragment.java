@@ -65,36 +65,16 @@ public class HomeFragment extends Fragment {
     }
 
     private void clickListeners() {
-        setBanner();
+        CommonFuntions.setBanner(mRootView);
         mSwipeRefreshLayout.setOnRefreshListener(() -> fetchDistrictWiseList());
         CommonFuntions.setupBottomLayoutClicks(getActivity(),mRootView);
 
     }
 
-    private void setBanner() {
-
-        List<String> bannerElement = new ArrayList<>();
-        bannerElement.add("Wash your hands with soap and water");
-        bannerElement.add("Your essential needs will be taken care by the government in an timely manner. Please do not hoard.");
-        bannerElement.add("Be considerate");
-        bannerElement.add("Help out the elderly by bringing them their groceries and other essentials.");
-        bannerElement.add("Don't hoard groceries and essentials. Please ensure that people who are in need don't face a shortage because of you!");
-        bannerElement.add("Call up your loved ones during the lockdown");
-        bannerElement.add("Help out your employees and domestic workers by not cutting their salaries. Show the true Indian spirit!");
-        bannerElement.add("Get in touch with your local NGO's and district administration to volunteer for this cause.");
-        bannerElement.add("Stands against FAKE and illegit WhatsApp forwards! Do NOT forword a message untill you verify the content it contains.");
-        bannerElement.add("Our brothers from North-East are just as Indian as you! Help everyone during this crisis.");
-        bannerElement.add("The virus does not discriminate. Why do you? DO NOT DISCRIMINATE. We are all INDIANS.");
-        bannerElement.add("There is no evidence that hot weather will stop the virus! You can! Stay home, stay safe.");
-        bannerElement.add("Help the medical medical fraternity by staying at home!");
-        bannerElement.add("Plan ahead! Take a minute and check how much supplies you have at home. Planning lets you buys exactly what you need.");
-        bannerElement.add("If you have any mediacal queries, reach out to your state helpline, district administration or trusted doctors!.");
-        bannerElement.add("This will pass too. Enjoy your time at home and spend quality time with your family! Things will be normal soon.");
-        bannerElement.add("If you hava any symtoms and suspect you have coronavirus - reaach ot to your doctors or call state helplines.");
-        bannerElement.add("Panic Mode : OFF, ESSENTIALS are ON!");
 
 
-    }
+
+
 
     /*
     * fetch district list for states
@@ -138,9 +118,7 @@ public class HomeFragment extends Fragment {
 
                             districtList.add(new District(disName, conf, d_conf));
 
-
                         }
-
 
                         stateDistrictPairList.add(new Pair(state,districtList));
                     }

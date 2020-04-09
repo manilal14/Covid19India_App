@@ -1,4 +1,4 @@
-package com.mani.covid_19.faq;
+package com.mani.covid_19.About;
 
 public class Faq {
     private String question;

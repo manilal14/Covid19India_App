@@ -37,7 +37,7 @@
         <LinearLayout
             android:id="@+id/ll_confirm"
             android:layout_width="0dp"
-            android:layout_weight="1.6"
+            android:layout_weight="1.7"
             android:background="@drawable/rounded_corner"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -272,9 +272,5 @@
 
 
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>

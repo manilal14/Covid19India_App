@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.mani.covid_19.faq.FaqFragment;
+import com.mani.covid_19.About.AboutFragment;
 import com.mani.covid_19.helful_links.HelpfulLinksFragment;
 import com.mani.covid_19.home.HomeFragment;
 import com.mani.covid_19.home.State;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             btn_faq.setTextColor(ContextCompat.getColor(this,R.color.black));
 
 
-            loadFragment(new FaqFragment());
+            loadFragment(new AboutFragment());
         });
 
     }
